@@ -48,8 +48,8 @@ class Socket {
 
             socket.on('chatMessage', msg => {
                 const id = socket.id;
-                const numUsers = TwoPlayers.getKurcic(id);
-                const numUsers2 = ThreePlayers.getKurcic(id);
+                const numUsers = TwoPlayers.getNumberOfUsersInRoom(id);
+                const numUsers2 = ThreePlayers.getNumberOfUsersInRoom(id);
 
                 if(numUsers !== undefined){
                     const username = TwoPlayers.getUsername(id);
@@ -78,8 +78,8 @@ class Socket {
                 const playerTurn = data.playerTurn;
                 const column = data.column;
                 const id = socket.id;
-                const numUsers = TwoPlayers.getKurcic(id);
-                const numUsers2 = ThreePlayers.getKurcic(id);
+                const numUsers = TwoPlayers.getNumberOfUsersInRoom(id);
+                const numUsers2 = ThreePlayers.getNumberOfUsersInRoom(id);
 
                 if(numUsers !== undefined){
                     const room = TwoPlayers.getRoom(id);
@@ -111,8 +111,8 @@ class Socket {
 
             socket.on('end', () => {
                 const id = socket.id;
-                const numUsers = TwoPlayers.getKurcic(id);
-                const numUsers2 = ThreePlayers.getKurcic(id);
+                const numUsers = TwoPlayers.getNumberOfUsersInRoom(id);
+                const numUsers2 = ThreePlayers.getNumberOfUsersInRoom(id);
 
                 if(numUsers !== undefined){
                     const room = TwoPlayers.getRoom(id);
@@ -141,8 +141,8 @@ class Socket {
             
             socket.on('newGame', () => {
                 const id = socket.id;
-                const numUsers = TwoPlayers.getKurcic(id);
-                const numUsers2 = ThreePlayers.getKurcic(id);
+                const numUsers = TwoPlayers.getNumberOfUsersInRoom(id);
+                const numUsers2 = ThreePlayers.getNumberOfUsersInRoom(id);
 
                 if(numUsers !== undefined){
                     const room = TwoPlayers.getRoom(id);
@@ -172,8 +172,8 @@ class Socket {
 
             socket.on('disconnect', () => {
                 const id = socket.id;
-                const numUsers = TwoPlayers.getKurcic(id);
-                const numUsers2 = ThreePlayers.getKurcic(id);
+                const numUsers = TwoPlayers.getNumberOfUsersInRoom(id);
+                const numUsers2 = ThreePlayers.getNumberOfUsersInRoom(id);
 
                 if(numUsers !== undefined){
                     const room = TwoPlayers.getRoom(id);
@@ -253,8 +253,8 @@ function joinRoom(socket, username, room) {
 
 function leaveRoom(socket) {
     const id = socket.id;
-    const numUsers = TwoPlayers.getKurcic(id);
-    const numUsers2 = ThreePlayers.getKurcic(id);
+    const numUsers = TwoPlayers.getNumberOfUsersInRoom(id);
+    const numUsers2 = ThreePlayers.getNumberOfUsersInRoom(id);
 
     if(numUsers !== undefined){
         const room = TwoPlayers.getRoom(id);

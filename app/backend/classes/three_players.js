@@ -27,11 +27,11 @@ class ThreePlayers {
          */
         this.games = new Map();
 
-        this.kurcina = new Map();
+        this.usersInRoom = new Map();
     }
 
     addPlayer(id, username, room, numUsers){
-        this.kurcina.set(id, numUsers)
+        this.usersInRoom.set(id, numUsers)
         this.players.set(id, username);
         this.playersInRoom.set(id, room);
         if (this.hasRoom(room)) this.rooms.get(room).add(id);
@@ -47,7 +47,7 @@ class ThreePlayers {
     }
 
     deletePlayer(id, username, room) {
-        this.kurcina.delete(id);
+        this.usersInRoom.delete(id);
         this.players.delete(id);
         this.playersInRoom.delete(id);
         this.rooms.get(room).delete(id);
@@ -113,8 +113,8 @@ class ThreePlayers {
     restartGame(room) {
         this.games.get(room).restartBoard();
     }
-    getKurcic(id){
-        return this.kurcina.get(id);
+    getNumberOfUsersInRoom(id){
+        return this.usersInRoom.get(id);
     }
 }
 
